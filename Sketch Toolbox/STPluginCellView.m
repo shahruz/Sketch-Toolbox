@@ -29,8 +29,11 @@
 }
 
 -(void)populate {
+    NSString * desc = self.plugin.desc != nil ? self.plugin.desc : @"";
+    NSString * owner = self.plugin.owner != nil ? self.plugin.owner : @"";
     self.nameButton.title = self.plugin.displayName;
-    self.descriptionField.stringValue = self.plugin.desc;
+    self.descriptionField.stringValue = desc;
+    self.owner.stringValue = owner;
     self.owner.stringValue = self.plugin.owner;
     self.starCount.stringValue = [NSString stringWithFormat:@"%i", self.plugin.stars];
     if (self.plugin.state == PluginStateInstalled) {

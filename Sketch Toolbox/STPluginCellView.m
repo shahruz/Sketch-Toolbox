@@ -31,7 +31,9 @@
 -(void)populate {
     self.nameButton.title = self.plugin.displayName;
     self.descriptionField.stringValue = self.plugin.desc;
-    self.owner.stringValue = self.plugin.owner;
+    // Mac OS 10.12.6 start line of code that led to a collapse
+    //self.owner.stringValue = self.plugin.owner;
+    self.owner.stringValue = self.plugin.owner ?: @"";
     self.starCount.stringValue = [NSString stringWithFormat:@"%i", self.plugin.stars];
     if (self.plugin.state == PluginStateInstalled) {
         self.actionButton.enabled = YES;
